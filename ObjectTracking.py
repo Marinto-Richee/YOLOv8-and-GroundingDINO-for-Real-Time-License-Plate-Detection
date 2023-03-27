@@ -1,11 +1,13 @@
 import cv2
-
 from ultralytics import YOLO
 import supervision as sv
 import numpy as np
+
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
-vi=sv.VideoInfo.from_video_path("Traffic_long.mp4")
+
+videopath="los_angeles.mp4"
+vi=sv.VideoInfo.from_video_path(videopath)
 tracked=set()
 LINE_START = sv.Point(0, vi.height//2+150)
 LINE_END = sv.Point(vi.width, vi.height//2+150)
@@ -19,7 +21,7 @@ def main():
         text_scale=0.5
     )
     model = YOLO("yolov8m.pt")
-    for result in model.track(source="Traffic_long.mp4", stream=True):
+    for result in model.track(source=videopath, stream=True):
         
         frame = result.orig_img
         detections = sv.Detections.from_yolov8(result)
@@ -61,7 +63,6 @@ def main():
         line_annotator.annotate(frame=frame, line_counter=line_counter)
         cv2.imshow("yolov8", frame)
         if (cv2.waitKey(1) == 27):
-            
             break
 
 
