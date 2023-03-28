@@ -6,7 +6,8 @@ import numpy as np
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
-videopath="los_angeles.mp4"
+videopath="assets\\video3.mp4"
+outdir="output/"
 vi=sv.VideoInfo.from_video_path(videopath)
 tracked=set()
 LINE_START = sv.Point(0, vi.height//2+150)
@@ -37,23 +38,24 @@ def main():
             in detections
         ]
 
-        boxes__ = np.array(result.boxes.xyxy.numpy(), dtype="int")
-        for box in boxes__:
-            x,y,x1,y1=box
-            cv2.imwrite("output/"+str(model.names[detections.class_id[-1]])+".jpg",result.orig_img[y:y1,x:x1])
         for box,cls_id in zip(result.boxes,detections.class_id):
-            tracker_id=box.id.cpu().numpy().astype(int)
-            x,y,x1,y1=(box.xyxy.numpy().astype(int))[0]
-            img_name=str(model.names[cls_id])+"_"+str(tracker_id)+".jpg"
-            path="output/"+img_name
-            if not os.path.exists(path):
-                cv2.imwrite("output/"+img_name,result.orig_img[y:y1,x:x1])
-            else:
-                img_old=cv2.imread(path)
-                area_old=img_old.shape[0]*img_old.shape[1]
-                area_new=(y1-y)*(x1-x)
-                if area_new>area_old:
-                    cv2.imwrite("output/"+img_name,result.orig_img[y:y1,x:x1])
+            if box.cls.cpu().numpy().astype(int) in [7,2,3]:   
+                tracker_id=box.id.cpu().numpy().astype(int)
+                x,y,x1,y1=(box.xyxy.numpy().astype(int))[0]
+                if x<0:
+                    x=0
+                if y<0:
+                    y=0
+                img_name=str(model.names[cls_id])+"_"+str(tracker_id)+".jpg"
+                path=outdir+img_name
+                if not os.path.exists(path):
+                    cv2.imwrite(path,frame[y:y1,x:x1])
+                else:
+                    img_old=cv2.imread(path)
+                    area_old=img_old.shape[0]
+                    area_new=(y1-y)
+                    if area_new>=area_old:
+                        cv2.imwrite(path,frame[y:y1,x:x1])
         frame = box_annotator.annotate(
             scene=frame, 
             detections=detections,
