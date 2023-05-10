@@ -11,12 +11,12 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 # videopath="assets\\main gate 2.mkv
 # videopath="assets\\CCTV Main Gate.mp4"
 # videopath="assets\\CCTV Main Gate long.mp4"
-# videopath="assets\\LPD.mp4"
+videopath="assets\\LPD.mp4"
 # videopath="assets\\Road traffic video for object recognition.mp4"
 # videopath="assets\\main gate 1.mkv"
 # videopath="assets\\SimTrim_Trim.mp4"
 # videopath="assets\\vid2.mp4"
-videopath = "assets\\video3.mp4"
+# videopath = "assets\\video3.mp4"
 outdir = "output/"
 vi = sv.VideoInfo.from_video_path(videopath)
 tracked = set()
@@ -67,7 +67,8 @@ def main():
                         # area_new=(x1-x)
                         if area_new >= area_old:
                             cv2.imwrite(path, frame[y:y1, x:x1])
-        box_annotator.annotate(frame, detections)
+        #visualization
+        """box_annotator.annotate(frame, detections)
         frame = box_annotator.annotate(
             scene=frame, detections=detections, labels=labels
         )
@@ -75,7 +76,7 @@ def main():
         line_annotator.annotate(frame=frame, line_counter=line_counter)
         cv2.imshow("yolov8", frame)
         if cv2.waitKey(1) == 27:
-            break
+            break"""
 
 
 if __name__ == "__main__":
