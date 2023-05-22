@@ -28,7 +28,7 @@ def main():
     line_counter = sv.LineZone(start=LINE_START, end=LINE_END)
     line_annotator = sv.LineZoneAnnotator(thickness=2, text_thickness=1, text_scale=0.5)
     box_annotator = sv.BoxAnnotator(thickness=2, text_thickness=1, text_scale=0.5)
-    model = YOLO("yolov8n.pt")
+    model = YOLO("yolov8s.pt")
     for result in model.track(source=videopath, stream=True, device=0):
 
         frame = result.orig_img
@@ -68,7 +68,7 @@ def main():
                         if area_new >= area_old:
                             cv2.imwrite(path, frame[y:y1, x:x1])
         #visualization
-        """box_annotator.annotate(frame, detections)
+        box_annotator.annotate(frame, detections)
         frame = box_annotator.annotate(
             scene=frame, detections=detections, labels=labels
         )
@@ -76,7 +76,7 @@ def main():
         line_annotator.annotate(frame=frame, line_counter=line_counter)
         cv2.imshow("yolov8", frame)
         if cv2.waitKey(1) == 27:
-            break"""
+            break
 
 
 if __name__ == "__main__":
