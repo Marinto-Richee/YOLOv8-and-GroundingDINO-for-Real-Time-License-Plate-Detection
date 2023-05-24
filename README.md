@@ -1,11 +1,41 @@
-# SECURITY SURVEILLANCE SYSTEM USING LICENSE PLATE RECOGNITION
-A project using YoloV8 to detect License Plates
-## ABSTRACT
-<p align="justify">
-&nbsp;&nbsp;&nbsp;&nbsp;Vehicle number plate recognition system (VNPRS) is an advanced technology that has revolutionized the way vehicles are tracked and monitored. It consists of two main components: a camera that captures the license plate image and a software system that processes the image and recognizes the characters. OCR algorithms use patterns and shapes to create a unique identification number for the vehicle, which can be used for a variety of applications. VNPRS has numerous benefits, such as improved security and safety, increased efficiency in law enforcement, and reduced traffic congestion. It is likely to see more widespread adoption in the near future.
-</p>
+# YOLOv8 and GroundingDINO for License Plate Extraction from Video Footage
 
-## OBJECTIVE
-<p align="justify">
-&nbsp;&nbsp;&nbsp;&nbsp;The Vehicle Number Plate Recognition (VNPR) system is a technology that automatically recognizes and reads the license plates of vehicles through cameras and software. Its main objectives are to improve road safety, enhance security, and provide efficient traffic management. It can also help in preventing crimes such as car thefts and terrorist activities. Additionally, it can help in enhancing law enforcement by providing crucial information such as the time and location of a crime and the license plate of the vehicle involved. The system has the potential to transform the way we manage our roads and enhance the safety and security of our communities.
-</p>
+This repository contains the code for a system that can automatically extract license plates from video footage. The system uses a combination of YoloV8 and GroundingDINO to achieve this goal.
+
+## Objective
+
+The objective of this project is to develop a system that can automatically extract license plates from video footage. The system will use a combination of YoloV8 and GroundingDINO to achieve this goal.
+
+## Abstract
+
+This paper presents a novel approach to license plate extraction from video footage. The proposed system uses a combination of YoloV8 and GroundingDINO to achieve this goal. YoloV8 is used to extract images of vehicles from the footage, and GroundingDINO is used to extract the section of the image that contains the license plate. The system was evaluated on a dataset of video footage, and it was shown to be able to extract license plates with high accuracy.
+
+## Methodology
+
+The proposed system consists of two main components:
+
+* YoloV8: YoloV8 is a deep learning object detection model that can be used to identify objects in images and video. YoloV8 was trained on a dataset of images that contain vehicles.
+* GroundingDINO: GroundingDINO is a deep learning model that can be used to extract regions of interest from images. GroundingDINO was trained on a dataset of images that contain license plates.
+
+The proposed system works as follows:
+
+1. YoloV8 is used to identify vehicles in the video footage.
+2. The identified vehicles are then passed to GroundingDINO, which extracts the region of the image that contains the license plate.
+3. The extracted license plates are then stored in a database.
+
+## Results
+
+The proposed system was evaluated on a dataset of video footage. The system was shown to be able to extract license plates with high accuracy. The system was able to extract license plates from a variety of video footage, including footage that was taken in different lighting conditions and from different angles.
+
+## Conclusion
+
+The proposed system is a significant improvement over existing methods for license plate extraction. The system is more accurate and can be used to extract license plates from a wider variety of video footage. The proposed system is still under development, but it has the potential to be a valuable tool for a variety of applications.
+
+## Requirements
+
+* Python 3.7
+* PyTorch
+* YoloV8
+* GroundingDINO
+
+
