@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[13]:
-
-
 import numpy as np
 import os
 import supervision as sv
@@ -14,9 +11,7 @@ import groundingdino.datasets.transforms as T
 import torch
 from torchvision.ops import box_convert
 
-
-# In[14]:
-
+# Import necessary libraries and modules
 
 import os
 
@@ -31,15 +26,7 @@ if (
 ):
     get_ipython().system("git clone https://github.com/IDEA-Research/GroundingDINO.git")
 
-
-# In[15]:
-
-
-os.path.isfile("GroundingDINO\groundingdino\config\GroundingDINO_SwinT_OGC.py")
-
-
-# In[16]:
-
+# Download pre-trained weights and clone the GroundingDINO repository
 
 from groundingdino.util.inference import load_model, load_image, predict, annotate
 
@@ -48,18 +35,22 @@ model = load_model(
     "groundingdino_swint_ogc.pth",
 )
 
+# Load the GroundingDINO model
 
-# In[17]:
 IMAGE_FOLDER = "output"
 LICENSE_PLATE_FOLDER = "License Plate"
 TEXT_PROMPT = "Number Plate"
 BOX_THRESHOLD = 0.5
 TEXT_THRESHOLD = 0.3
+
+# Define the image folder, license plate folder, and thresholds
+
 for file_name in os.listdir(IMAGE_FOLDER):
     if file_name.endswith(".jpg"):
         # load image
         image_path = os.path.join(IMAGE_FOLDER, file_name)
         image_source, image = load_image(image_path)
+        
         # detect license plates
         with torch.no_grad():
             boxes, logits, phrases = predict(
@@ -69,14 +60,17 @@ for file_name in os.listdir(IMAGE_FOLDER):
                 box_threshold=BOX_THRESHOLD,
                 text_threshold=TEXT_THRESHOLD,
             )
+            
         if len(boxes) == 0:
             continue
+        
         # save license plate images to separate folder
         h, w, _ = image_source.shape
         boxes = boxes * torch.Tensor([w, h, w, h])
         xyxy = box_convert(boxes=boxes, in_fmt="cxcywh", out_fmt="xyxy").numpy()
         detections = sv.Detections(xyxy=xyxy)
         image_source = cv2.cvtColor(image_source, cv2.COLOR_BGR2RGB)
+        
         for i in range(len(detections)):
             x1, y1, x2, y2 = detections.xyxy[i].astype(int)
             license_plate_file_name = f"{os.path.splitext(file_name)[0]}_{i}.jpg"
@@ -85,5 +79,7 @@ for file_name in os.listdir(IMAGE_FOLDER):
             )
             cv2.imwrite(license_plate_file_path, image_source[y1:y2, x1:x2])
 
+# Loop through the image files in the image folder
+# Load each image and detect license plates using the GroundingDINO model
+# Save the license plate images to a separate folder with appropriate file names
 
-# %%
