@@ -16,7 +16,7 @@ def main():
     box_annotator = sv.BoxAnnotator(thickness=2, text_thickness=1, text_scale=0.5)
     
     # Load the YOLO model
-    model = YOLO("yolov8s.pt")
+    model = YOLO("yolov8n.pt")
     
     # Iterate over the video frames
     for result in model.track(source=videopath, stream=True, device=0):
