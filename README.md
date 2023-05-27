@@ -21,11 +21,19 @@ The proposed system works as follows:
 
 1. YoloV8 is used to identify vehicles in the video footage.
 2. The identified vehicles are then passed to GroundingDINO, which extracts the region of the image that contains the license plate.
-3. The extracted license plates are then stored in a database.
+3. The extracted license plates are then stored in a folder.
+## Samples 
+
+### YoloV8 output:
+![image](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/06baf60a-59ee-4c4e-a829-04fb25635905)
+
+### GroundingDINO output:
+![image](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/289c9bc5-1dcd-41a0-a720-278adda4cb39)
+
 
 ## Results
 
-The proposed system was evaluated on a dataset of video footage. The system was shown to be able to extract license plates with high accuracy. The system was able to extract license plates from a variety of video footage, including footage that was taken in different lighting conditions and from different angles.
+The proposed system was evaluated on a dataset of video footage. The system was shown to be able to extract license plates with high accuracy. The system was able to extract license plates from a variety of video footage.
 
 ## Conclusion
 
