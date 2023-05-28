@@ -27,11 +27,11 @@ The proposed system works as follows:
 
 ![Project Architecture](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/e67bde3e-632c-4fb5-87fc-5d74bfe76542)
 
-### YoloV8 output:
-![image](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/06baf60a-59ee-4c4e-a829-04fb25635905)
+### YoloV8 output and GroundingDINO output:
 
-### GroundingDINO output:
-![image](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/289c9bc5-1dcd-41a0-a720-278adda4cb39)
+| YoloV8 output | GroundingDINO output |
+| --- | --- |
+| ![YoloV8 output](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/06baf60a-59ee-4c4e-a829-04fb25635905) | ![GroundingDINO output](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/289c9bc5-1dcd-41a0-a720-278adda4cb39) |
 
 
 ## Results
