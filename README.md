@@ -49,4 +49,4 @@ The proposed system is a significant improvement over existing methods for licen
 * YoloV8
 * GroundingDINO
 
-
+To try this implementation, clone this repository and change the directory in the 'Vehicle_detection.py' file with the path to your video footage. 
