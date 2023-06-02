@@ -1,4 +1,4 @@
-# YOLOv8 and GroundingDINO for License Plate Extraction from Video Footage
+# YOLOv8 and GroundingDINO for License Plate Detection from Video Footage
 
 This repository contains the code for a system that can automatically extract license plates from video footage. The system uses a combination of YoloV8 and GroundingDINO to achieve this goal.
 
