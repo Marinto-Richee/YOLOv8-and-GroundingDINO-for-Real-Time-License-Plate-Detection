@@ -24,6 +24,7 @@ The proposed system works as follows:
 3. The extracted license plates are then stored in a folder.
 
 ## Project Architecture:
+![image](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-Real-Time-License-Plate-Detection/assets/65499285/253a402d-a3a9-4875-8c1d-9fcaf2f054f0)
 
 ![Project Architecture](https://github.com/Marinto-Richee/YOLOv8-and-GroundingDINO-for-License-Plate-Extraction-from-Video-Footage/assets/65499285/e67bde3e-632c-4fb5-87fc-5d74bfe76542)
 
